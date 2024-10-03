@@ -1,6 +1,4 @@
-<?php
-    $columnsNumber = 4;
-?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,33 +11,49 @@
     </head>
     <body>
         
-        <header class="py-4 mb-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        <h1>
-                            Template PHP
-                        </h1>
+        <main id="app">
+
+
+            <!-- navbar -->
+            <nav class="navbar bg-body-tertiary">
+                <div class="container-fluid">
+                    <span class="navbar-brand mb-0 h1">
+                       <h3>
+                        Music
+                       </h3>
+                    </span>
+                </div>
+            </nav>
+
+            <!-- Container music cards -->
+            <div class="d-flex flex-wrap">
+
+                <!-- Card -->
+                <div class="card m-4" style="width: 18rem;" v-for="disc in discs" :key="index">
+                    <img :src="disc.poster" class="card-img-top" :alt="disc.title">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ disc.title }}</h4>
+                        <h6>
+                            {{ disc.author }} 
+                        </h6>
+                        <strong>
+                            {{ disc.year }}
+                        </strong>
                     </div>
                 </div>
             </div>
-        </header>
 
-        <main>
-            <div class="container">
-                <div class="row">
-                    <?php
-                        for ($i = 0; $i < $columnsNumber; $i++) {
-                    ?>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            Colonna <?php echo $i + 1; ?>
-                        </div>
-                    <?php
-                        }
-                    ?>
-                </div>
-            </div>
         </main>
+
+        
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+        <!-- Axios -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+        <!-- JS -->
+        <script src="js\scripts.js"></script>
 
     </body>
 </html>
